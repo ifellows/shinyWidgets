@@ -79,12 +79,14 @@ verticalTabsetPanel <- function(..., selected = NULL, id = NULL, color = "#11244
     if (length(indice) < 1)
       indice <- 1
   }
-  tabs[[indice]]$tabcontent$attribs$class <- paste(
-    tabs[[indice]]$tabcontent$attribs$class, "active"
-  )
-  tabs[[indice]]$tabbox$attribs$class <- paste(
-    tabs[[indice]]$tabbox$attribs$class, "active"
-  )
+  if(length(tabs) > 0){
+    tabs[[indice]]$tabcontent$attribs$class <- paste(
+      tabs[[indice]]$tabcontent$attribs$class, "active"
+    )
+    tabs[[indice]]$tabbox$attribs$class <- paste(
+      tabs[[indice]]$tabbox$attribs$class, "active"
+    )
+  }
   if (identical(menuSide, "left")) {
     vtbTag <- tags$div(
       class="col-sm-12 bhoechie-tab-container tabbable",
